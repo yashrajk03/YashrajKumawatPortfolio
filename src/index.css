@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global styles */
+@layer base {
+  body {
+    @apply bg-gray-950 text-white;
+  }
+}
+
+/* Animations & custom utility classes */
+@layer utilities {
+  .animate-slide-down {
+    animation: slideDown 0.8s ease-out forwards;
+  }
+  @keyframes slideDown {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  @keyframes slideUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease forwards;
+  }
+  @keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .animate-fade-in-delayed {
+    animation: fadeInDelayed 1.4s ease forwards;
+  }
+  @keyframes fadeInDelayed {
+    0% { opacity: 0; }
+    40% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  .animate-bounce-slow {
+    animation: bounceSlow 2.4s infinite;
+  }
+  @keyframes bounceSlow {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(4px); }
+  }
+
+  .nav-link {
+    @apply text-gray-300 hover:text-teal-400 transition duration-300 relative;
+  }
+  .nav-link::after {
+    content: "";
+    @apply absolute left-0 -bottom-1 w-0 h-[2px] bg-teal-400 transition-all duration-300;
+  }
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  .social-icon {
+    @apply text-gray-300 hover:text-teal-400 transition duration-300 transform hover:scale-125;
+  }
+
+  .glass-card {
+    @apply bg-gray-900/70 backdrop-blur-xl border border-gray-700/60;
+  }
+}
